@@ -746,7 +746,7 @@ void freemem()
 
 #ifdef LOGFILE
 	if ((no_ans == FALSE) && logme && (ans > 0)) {
-		sprintf(scorepath,"%s/%s","/var/lib/games","purity.scores");
+		sprintf(scorepath,"%s/%s","/var/games","purity.scores");
 		fp = fopen (scorepath,"a+");
 		if (fp != NULL) {
 #ifdef GETLOGIN
