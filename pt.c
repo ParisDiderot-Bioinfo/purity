@@ -21,7 +21,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #ifdef LINUX
-#  include <termios.h>
+#  include <asm/termios.h>
 #else
 #  include <sys/termio.h>
 #endif
