@@ -1,0 +1,152 @@
+.TH PURITY 6 "18 December 1989"
+.SH NAME
+purity
+\- a general purpose purity test
+.SH SYNOPSIS
+.B /usr/games/purity [
+.I flags
+] [
+.I testname
+]
+.SH DESCRIPTION
+Purity is an interactive purity test program with a simple,
+user interface and datafile format.  For each test, questions
+are printed to the your terminal, and you are prompted for
+an answer to the current question.  At a prompt, these are
+your choices:
+.RS
+.IP y
+Answer "yes" to the question.
+.IP n
+Answer "no" to the question.
+.IP b
+Backup one question, if you answered it incorrectly, or
+someone is watching you take the test, and you don't (or do)
+want to admit a different answer.
+.IP r
+Redraw the current question.
+.IP q
+Quit the test, and print the current score.
+.IP ?
+Print a help screen for the current prompt.
+.IP k
+.I Kill
+a section of the test.  This skips all the questions
+of the test until the next subject heading.
+.IP a
+Toggle answer mode between
+.I real
+answers and
+.I obfuscated
+answers.
+.I Real
+answers print "yes" and "no", while
+.I obfuscated
+answers are "Maybe" and "maybe".  Obfuscated answers are
+preferred if you are shy, and don't want people to be able to
+read your answers over your shoulder as you take the test.
+.IP d
+Toggle dERanGe output.
+.IP s
+Print your current score on the test you are taking.
+.IP l
+Toggle score logging.
+.RE
+.PP
+At the end of the test, your score is printed out.  For most
+purity tests, lower scores denote more "experience" of the
+test material.
+
+.SH FLAGS
+These are the command line flags for the test.
+.RS
+.IP -a
+Show 
+.I real
+answers (i.e. "yes" and "no") instead of
+.I obfuscated
+ones (i.e. "Maybe" and "maybe") as you answer
+the questions.
+.IP -d
+PrINt THe tESt in DerANgeD pRInT.
+.IP -f
+Take the test in
+.I fast
+mode.  Only the questions are printed, and not any other
+text blocks, like the introdution, subject headers, and
+the conclusion.
+.IP -l
+Take the test without having your score logged.
+.IP -p
+Print the test without prompting for answers.  This is
+useful for making hard copies of the tests without
+having to edit out the prompts by hand.
+.IP -r
+Decrypt the test using the
+.I Rot 13
+algorithm.  This is
+done as a form of "protection", such that if you read a
+rot13 test and it offends you, it's your own fault.
+.IP -z
+.I zoom
+through more prompts in large text blocks.  The
+default is to prompt the user for 
+.I "more"
+when a screenful
+of text has been printed without any user input.
+.RE
+.SH DATAFILE FORMAT
+The format of the datafiles is a very simple format,
+intended such that new tests can quickly and easily
+be converted to run with the test.
+.PP
+There are four types of text in a purity test datafile.
+Each type is contained in a
+.I bracket
+type of punctuation.  The definitions are as follows:
+.PP
+the styles of text blocks are:
+.IP
+{ plain text block }
+.IP
+[ subject header ]
+.IP
+( test question )
+.IP
+and	< conclusion >
+.PP
+Plain text blocks are printed out character for character.
+.PP
+Subject headers are preceeded by their subject numbers, starting
+at 1, and then printed as text blocks.
+.PP
+Questions are preceeded by their numbers, and then prompt the
+user to answer the question, keeping track of the user's
+current score.
+.PP
+Conclusions first calculate and print the user's score for the
+test, then print out the conclusion as a text block.
+.PP
+If you wish to include any of the various bracket punctuation in
+your text, the backslash ("\\") character will 
+.I escape
+the next character.
+
+To print a question with parentheses, you would use the following format:
+.PP
+(have you ever written a purity test \\(like this one\\)?)
+.PP
+the output would be this:
+.PP
+   1.  have you ever written a purity test (like this one)?
+.PP
+and then it would have asked the user for her/his answer.
+.PP
+For a generic datafile, use the "sample" datafile for the test.
+.SH FILES
+.nf
+/usr/games/lib/purity/scores	the score logfile
+/usr/games/lib/purity/*		test data files
+.fi
+.SH AUTHOR
+Eric Lechner, lechner@ucscb.ucsc.edu
