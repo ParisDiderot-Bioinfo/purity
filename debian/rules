@@ -30,14 +30,25 @@ binary-arch:	checkroot build
 	install -d debian/tmp
 	cd debian/tmp && install -d `cat ../dirs`
 	make install DESTDIR=`pwd`/debian/tmp
-# Must have debmake installed for this to work. Otherwise please copy
-# /usr/bin/debstd into the debian directory and change debstd to debian/debstd
-	debstd README README.linux 
-	dpkg-gencontrol
-	chown -R root.root debian/tmp
-	chmod -R go=rX debian/tmp
-	dpkg --build debian/tmp ..
 
+	dh_installdirs
+	dh_installdocs README README.linux 
+	dh_installexamples
+	dh_installchangelogs
+	dh_installmenu
+	dh_installcron
+	dh_installmanpages -ppurity
+	dh_movefiles
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_suidregister
+	dh_shlibdeps
+	dh_gencontrol
+	dh_makeshlibs
+	dh_installdeb
+	dh_md5sums
+	dh_builddeb
 define checkdir
 	test -f debian/rules
 endef

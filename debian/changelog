@@ -1,3 +1,19 @@
+purity (1-9) unstable; urgency=low
+
+  * converted to debhelper
+  * changed sunsite.unc.edu to metalab.unc.edu (fixes #33612)
+  * moved tests under /usr/share/games/purity (fixes #44912)
+
+ -- Aaron Howell <aaron@kitten.net.au>  Tue, 21 Sep 1999 10:39:15 +1000
+
+purity (1-8) unstable; urgency=low
+
+  * fixed line length of extended description to conform to policy,
+    fixes #30086
+  * changed maintainer address to aaron@kitten.net.au
+
+ -- Aaron Howell <aaron@kitten.net.au>  Sat, 9 Jan 1999 15:25:59 +1000
+
 purity (1-7) unstable; urgency=low
 
   * change maintainer address back to cnl, too many problems with mail to bayside.

@@ -1,4 +1,5 @@
 #!/bin/sh
+#DEBHELPER#
   touch /var/lib/games/purity.scores
   chmod 660 /var/lib/games/purity.scores
   chown  root.games /var/lib/games/purity.scores

@@ -1,1 +1,1 @@
-text Games/Misc purity none "purity an automated purity test" /usr/games/purity hacker
+?package(purity):needs="text" section="Games/Toys" title="purity" command="/usr/games/purity hacker"
