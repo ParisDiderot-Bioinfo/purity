@@ -750,7 +750,8 @@ void freemem()
 		fp = fopen (scorepath,"a+");
 		if (fp != NULL) {
 #ifdef GETLOGIN
-			(void) strcpy(login,getlogin());
+			char *tmp = getlogin();
+			(void) strcpy(login,(tmp) ? tmp : "");
 			if (*login == '\0') {
 #endif
 #ifdef PW
