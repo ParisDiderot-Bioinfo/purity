@@ -789,7 +789,7 @@ void sizewindow()
 {
 	struct winsize wsize;
 
-	(void) ioctl(0,TIOCSWINSZ,&wsize);
+	(void) ioctl(0,TIOCGWINSZ,&wsize);
 
 	cols = wsize.ws_col;
 	rows = wsize.ws_row;
