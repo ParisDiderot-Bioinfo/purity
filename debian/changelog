@@ -1,9 +1,56 @@
-purity (1-9.1) oldstable-security; urgency=high
+purity (1-14.2) stable-security; urgency=high
+
+  * Non-maintainer upload by security team
+  * Fixed two buffer overflows
+  * Removed .orig file which was left over from patching
+
+ -- Martin Schulze <joey@infodrom.org>  Thu, 12 Sep 2002 08:47:22 +0200
+
+purity (1-14.1) stable-security; urgency=high
 
   * Non-maintainer upload by security team
   * Fixed two buffer overflows
 
- -- Martin Schulze <joey@infodrom.org>  Tue, 10 Sep 2002 20:23:26 +0200
+ -- Martin Schulze <joey@infodrom.org>  Tue, 10 Sep 2002 20:23:53 +0200
+
+purity (1-14) unstable; urgency=low
+
+  * Change of e-mail address
+
+ -- Duncan Findlay <duncf@rogers.com>  Sat, 24 Nov 2001 16:11:01 -0500
+
+purity (1-13) unstable; urgency=low
+
+  * fixed segmentation fault when saving high scores (closes: #114340) -
+    thanks to Gergely Nagy for the patch 
+
+ -- Duncan Findlay <duncf@home.com>  Wed,  3 Oct 2001 22:12:24 -0400
+
+purity (1-12) unstable; urgency=low
+
+  * new maintainer (closes: #113109)
+  * fixed stty settings munging (closes: #112827, #112830) - thanks to
+    Alan Shutko for the patch
+  * added build depends (closes: #107311, #111794)
+  * moved /var/lib/games to /var/games (closes: #107643)
+  * (slightly) improved description (closes: #112806)
+
+ -- Duncan Findlay <duncf@home.com>  Thu, 20 Sep 2001 22:54:11 -0400
+
+purity (1-11) unstable; urgency=low
+
+  * changed package from extra to optional
+  * make directory /var/lib/games if it doesn't exist. (closes #107015)
+
+ -- Aaron Howell <aaron@kitten.net.au>  Mon, 30 Jul 2001 07:55:40 +1000
+
+purity (1-10) unstable; urgency=low
+
+  * Fixed Readme file (closes #48608).
+  * Applied patch from James Morrison to make purity build on SYSV
+    platforms using termios.
+
+ -- Aaron Howell <aaron@kitten.net.au>  Sun, 29 Jul 2001 17:15:53 +1000
 
 purity (1-9) unstable; urgency=low
 
@@ -65,8 +112,3 @@ purity (1-1) unstable; urgency=low
   * Initial Release.
 
  -- Aaron Howell <aaron@sunrise.cnl.com.au>  Mon, 29 Sep 1997 10:30:17 +1000
-
-Local variables:
-mode: debian-changelog
-add-log-mailing-address: "aaron@sunrise.cnl.com.au"
-End:

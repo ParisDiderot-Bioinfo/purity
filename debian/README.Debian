@@ -1,0 +1,23 @@
+purity for DEBIAN
+----------------------
+
+*** NOTICE ***
+This package used to contain materials which may not be appropriate for
+minors, and may offend some people.  To comply with the aims of debian while
+still providing a useful piece of software, this package has been released
+without the sexually explicit purity tests.
+
+Should you wish to install sexually explicit purity tests on your system,
+simply install the package purity-off, maintained by Marco d'Itri
+<md@linux.it>.
+
+Please be sure if you run a public access system and intend to install
+sexually explicit material that you are in complience with applicable local
+laws.
+
+To add more purity tests, install them into /usr/share/games/purity.
+
+The original distribution from which this package was created is available at
+ftp://metalab.unc.edu/pub/Linux/games/amusements/purity.tar.Z  
+
+This package is maintained by Duncan Findlay <duncf@rogers.com>

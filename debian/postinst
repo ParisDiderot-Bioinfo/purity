@@ -1,8 +1,18 @@
 #!/bin/sh
 #DEBHELPER#
-  touch /var/lib/games/purity.scores
-  chmod 660 /var/lib/games/purity.scores
-  chown  root.games /var/lib/games/purity.scores
-  chown root.games /usr/games/purity
-  chmod g+s /usr/games/purity
+if [ -f /var/lib/games/purity.scores ]
+then
+	mv /var/lib/games/purity.scores /var/games/purity.scores
+elif [ ! -f /var/games/purity.scores ]
+then
+	touch /var/games/purity.scores
+	chmod 660 /var/games/purity.scores
+	chown root.games /var/games/purity.scores;
+fi
 
+# Set perms
+if [ -f /usr/games/purity -a ! -g /usr/games/purity ]
+then
+	chown root.games /usr/games/purity
+	chmod g+s /usr/games/purity
+fi

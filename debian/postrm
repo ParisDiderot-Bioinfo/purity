@@ -1,0 +1,5 @@
+#!/bin/sh
+#DEBHELPER#
+if [ "$1" = "purge" ]; then
+	rm /var/games/purity.scores
+fi
