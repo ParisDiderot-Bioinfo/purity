@@ -1,0 +1,37 @@
+purity (1-5) unstable; urgency=low
+
+  * s/cnl.com.au/bayside.net.au/g
+
+  * rebuild to fix md5sums-contains-nonexisting-file error from lintian fixes #19394
+
+ -- Aaron Howell <aaron@sunrise.bayside.net.au>  Wed, 11 Mar 1998 16:18:27 +1000
+
+purity (1-4) unstable; urgency=low
+
+  * fix menu entry so purity gets started with a test that is actually included with the package. fixes #16478
+
+ -- Aaron Howell <aaron@sunrise.cnl.com.au>  Sat,  3 Jan 1998 02:48:31 +1000
+
+purity (1-3) unstable; urgency=low
+
+  * removed offensive purity tests in accordance with recommendations on debian-devel, see README.debian for more information
+
+ -- Aaron Howell <aaron@sunrise.cnl.com.au>  Sun, 30 Nov 1997 15:19:59 +1000
+
+purity (1-2) unstable; urgency=low
+
+  * reupload, hopefully this time my public key will be accepted
+
+ -- Aaron Howell <aaron@sunrise.cnl.com.au>  Sat, 18 Oct 1997 23:30:59 +1000
+
+purity (1-1) unstable; urgency=low
+
+  * Changed termios.h to asm/termios.h so  purity will build ok.
+  * Initial Release.
+
+ -- Aaron Howell <aaron@sunrise.cnl.com.au>  Mon, 29 Sep 1997 10:30:17 +1000
+
+Local variables:
+mode: debian-changelog
+add-log-mailing-address: "aaron@sunrise.cnl.com.au"
+End:

@@ -1,0 +1,12 @@
+Source: purity
+Section: games
+Priority: extra
+Maintainer: Aaron Howell <aaron@sunrise.bayside.net.au>
+Standards-Version: 2.3.0.0
+
+Package: purity
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: Automated purity testing software.
+ For many years now, the purity test, (in various forms) has been widely available on the net.
+ This package provides an automated way of taking the test.
