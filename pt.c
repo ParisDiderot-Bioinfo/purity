@@ -20,17 +20,13 @@
 #ifdef SYSV
 #include <sys/types.h>
 #include <sys/stat.h>
-#ifdef LINUX
-#  include <termios.h>
-#else
-#  include <sys/termio.h>
-#endif
+#include <termios.h>  /* SYSV now uses termios instead of termio POSIX compliant */
 #include <string.h>
 #else
-#include <sys/ioctl.h>
 #include <sgtty.h>
 #include <strings.h>
-#endif
+#endif /*SYSV*/
+#include <sys/ioctl.h>
 #include <sys/file.h>
 #include <signal.h>
 #include <pwd.h>
@@ -659,7 +655,7 @@ void set_mode()
 #ifndef SYSV
 	struct sgttyb p;
 #else
-	struct termio p;
+	struct termios p;
 #endif
 
 #ifndef SYSV
@@ -669,13 +665,13 @@ void set_mode()
 	p.sg_flags &= ~ECHO;
 	(void) ioctl(0,TIOCSETP,&p);
 #else
-	(void) ioctl(0,TCGETA,&p);
+	tcgetattr(0,&p);
 	tty_flags = p.c_lflag;
 	baz = p.c_cc[VMIN];
 	p.c_lflag &= ~ICANON;
 	p.c_lflag &= ~ECHO;
 	p.c_cc[VMIN] = 1;
-	(void) ioctl(0,TCSETA,&p);
+	tcsetattr(0,TCSANOW,&p);
 #endif
 }
 
@@ -684,7 +680,7 @@ void clr_mode()
 #ifndef SYSV
 	struct sgttyb p;
 #else
-	struct termio p;
+	struct termios p;
 #endif
 
 #ifndef SYSV
@@ -692,10 +688,10 @@ void clr_mode()
 	p.sg_flags = tty_flags;
 	(void) ioctl(0,TIOCSETP,&p);
 #else
-	(void) ioctl(0,TCGETA,&p);
+	tcgetattr(0,&p);
 	p.c_lflag = tty_flags;
 	p.c_cc[VMIN] = baz;
-	(void) ioctl(0,TCSETA,&p);
+	tcsetattr(0,TCSANOW,&p);
 #endif
 }
 
@@ -793,7 +789,7 @@ void sizewindow()
 {
 	struct winsize wsize;
 
-	(void) ioctl(0,TIOCGWINSZ,&wsize);
+	(void) ioctl(0,TIOCSWINSZ,&wsize);
 
 	cols = wsize.ws_col;
 	rows = wsize.ws_row;
