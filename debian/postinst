@@ -1,0 +1,7 @@
+#!/bin/sh
+  touch /var/lib/games/purity.scores
+  chmod 660 /var/lib/games/purity.scores
+  chown  root.games /var/lib/games/purity.scores
+  chown root.games /usr/games/purity
+  chmod g+s /usr/games/purity
+

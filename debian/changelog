@@ -1,3 +1,15 @@
+purity (1-7) unstable; urgency=low
+
+  * change maintainer address back to cnl, too many problems with mail to bayside.
+
+ -- Aaron Howell <aaron@sunrise.cnl.com.au>  Sat, 8 Aug 1998 18:44:27 +1000
+
+purity (1-6) unstable; urgency=low
+
+  * fix source and postinst so scores are logged to /var/lib/games/purity.scores (#18586)
+
+ -- Aaron Howell <aaron@sunrise.bayside.net.au>  Wed, 13 May 1998 10:27:03 +1000
+
 purity (1-5) unstable; urgency=low
 
   * s/cnl.com.au/bayside.net.au/g
