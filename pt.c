@@ -127,7 +127,7 @@ char *argv[];
 				case '-' :
 					break;
 				default :
-					(void) sprintf(path,"%s/%s",
+					(void) snprintf(path, sizeof(path),"%s/%s",
 							LIBDIR, argv[err]);
 					ch = TRUE;
 					break;
@@ -137,7 +137,7 @@ char *argv[];
 
 	fp = fopen(path,"r");
 	if (fp == NULL) {
-		(void) sprintf(path,"%s",argv[err]);
+		(void) snprintf(path, sizeof (path),"%s",argv[err]);
 		fp = fopen(path,"r");
 	}
 
