@@ -20,4 +20,4 @@ To add more purity tests, install them into /usr/share/games/purity.
 The original distribution from which this package was created is available at
 ftp://metalab.unc.edu/pub/Linux/games/amusements/purity.tar.Z  
 
-This package is maintained by Duncan Findlay <duncf@rogers.com>
+This package is maintained by Duncan Findlay <duncf@debian.org>

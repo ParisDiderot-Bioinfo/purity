@@ -123,8 +123,8 @@ char *argv[];
 				case '-' :
 					break;
 				default :
-					(void) snprintf(path, sizeof(path),"%s/%s",
-							LIBDIR, argv[err]);
+				  (void) snprintf(path, sizeof(path),"%s/%s",
+						  LIBDIR, argv[err]);
 					ch = TRUE;
 					break;
 			}
