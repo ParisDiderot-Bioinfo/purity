@@ -1,0 +1,16 @@
+{welcome to the purity test.
+
+try "purity list" for a list of current tests.
+
+
+to run each test, use "purity <type_of_test> [flags]".
+
+
+flags:	-z : "zoom" through "more" prompts.
+	-p : print the test without prompting for answers.
+	-l : start out without scorelogging turned on.
+	-d : print the test in DerANgeD pRInT.
+	-a : show answers as "yes"/"no" instead of "Maybe"/"maybe"
+	-r : pipe the test through "rot 13" decryption
+	-f : fast mode (doesn't print out text blocks other than questions)
+}

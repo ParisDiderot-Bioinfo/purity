@@ -1,0 +1,60 @@
+{
+The Purity Test:  datafile format
+
+If you wish to create your own datafiles for the purity test,
+follow these simple intructions.
+
+Each block of text (questions, subject headers, etc.) is
+enclosed in a "bracket" type of punctuation.
+
+the styles of text blocks are:
+	\{ plain text block \}
+	\[ subject header \]
+	\( test question \)
+and	\< conclusion \>
+
+Plain text blocks are just printed out character for character.
+
+Subject headers are prefaced by the subject number, and then
+printed as text blocks.
+
+Questions are preceeded by their numbers, and then prompt the
+user to answer the question, keeping track of the user's
+current score.
+
+Conclusions first calculate and print the user's score for the
+test, then print out the conclusion as a text block.
+
+If you wish to include any of the bracket punctuation in your
+text, the "\\" character will "escape" the next character.
+
+This means that to print a question with parentheses, you
+would use the following format:
+(have you ever created your own purity test \\(like this one\\)?)
+the output would be this:
+   1.  have you ever created your own purity test (like this one)?
+and then it would have asked the user for her/his answer.
+
+-Eric Lechner	10-26-1989
+
+-----------------sample data file------------------
+\{
+Welcome to the purity test!
+Answer all the questions, and I'll tell you
+your score when you've finished the test!
+\}
+
+[First subject: clown questions]
+(Can you stand on your head?)
+(Can you juggle?)
+(Do you own a pair of stilts?)
+
+[Second subject: computer programming]
+(Have you programmed a computer?)
+(Do you know more than 5 programming languages?)
+(Do you write purity test programs for fun?)
+
+<That's the end of the test.
+Hope you had fun!>
+--------------end of sample data file--------------
+}

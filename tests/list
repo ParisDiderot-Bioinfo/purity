@@ -1,0 +1,11 @@
+{welcome to the purity test.  the current available tests are:
+
+mtrek  - see how muck of an mtrek geek you are...
+nerd   - tests to see how "nerdy" you are...
+hacker - a hard core computer hacker purity test.
+
+format - an explanation of the data file format (for writing your own tests)
+sample - prints a generic sample datafile
+
+to run each test, use "purity <type_of_test> [flags]".
+}

@@ -1,0 +1,22 @@
+{
+\{
+This is a sample datafile for the purity test.
+
+It just prints out a generic datafile for the test.
+\}
+
+\[This is the first subject\]
+\(question number 1\)
+\(question number 2\)
+\(question number 3 \\\(parenthetical comment in question\\\) \)
+\(question number 4\)
+
+\[This is the second subject\]
+\(question number 5\)
+\(question number 6\)
+\(question number 7\)
+\(question number 8\)
+
+\< this is where the score gets printed, and this \\\( the
+conclusion\\\) gets printed.\>
+}

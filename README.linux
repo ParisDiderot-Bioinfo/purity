@@ -1,0 +1,12 @@
+I just put in a few changes here and there to make this compile under linux.
+basically, the SYSV option does most of the work, with only a few minor
+LINUX ifdefs put in to include needed header files, and help in a cleaner
+compile.
+
+I don't support this stuff....I only ported it.....so send your flames to
+/dev/null.
+
+
+-Jim
+ jwf@esu.edu
+
