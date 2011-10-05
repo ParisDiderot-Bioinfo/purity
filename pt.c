@@ -746,7 +746,11 @@ void freemem()
 
 #ifdef LOGFILE
 	if ((no_ans == FALSE) && logme && (ans > 0)) {
+# ifdef SCOREFILE
+		strcpy(scorepath, SCOREFILE);
+# else
 		sprintf(scorepath,"%s/%s",LIBDIR,"scores");
+# endif
 		fp = fopen (scorepath,"a+");
 		if (fp != NULL) {
 #ifdef GETLOGIN
