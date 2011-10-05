@@ -1,0 +1,176 @@
+From 790117346c3dbf1168b132e116272cd6f709ce59 Mon Sep 17 00:00:00 2001
+From: Bernhard R. Link <brlink@debian.org>
+Date: Wed, 5 Oct 2011 17:47:13 +0200
+Subject: avoid some compiler warnings
+
+---
+ pt.c |   77 +++++++++++++++++++++++++++++++++--------------------------------
+ 1 files changed, 39 insertions(+), 38 deletions(-)
+
+diff --git a/pt.c b/pt.c
+index d79766e..7649dd2 100644
+--- a/pt.c
++++ b/pt.c
+@@ -12,6 +12,7 @@
+ #ifdef LINUX
+ # define SYSV
+ # include <unistd.h>
++# include <stdlib.h>
+ #endif
+ 
+ #include "pt.h"
+@@ -50,49 +51,48 @@ struct quest {
+ 	struct quest *last;	/* pointer to last question	*/
+ };
+ 
+-int	question(),
+-	get_response(),
+-	getresp(),
+-	subject(),
+-	print(),
+-	more();
++static int	question(void),
++	get_response(void),
++	getresp(void),
++	subject(void),
++	print(int, int),
++	more(void),
++	redraw(void);
+ 
+-void	explain(),
+-	quit(),
++static void	explain(void),
++	quit(int),
+ #ifdef SIGTSTP
+-	ctrlz(),
+-	ctrlzret(),
++	ctrlz(int),
++	ctrlzret(int),
+ #endif
+-	set_mode(),
+-	clr_mode(),
+-	freemem(),
+-	printscore(),
+-	sizewindow();
++	set_mode(void),
++	clr_mode(void),
++	freemem(void),
++	printscore(void),
++	sizewindow(void);
+ 
+ #ifndef PW
+ struct passwd *getpw();
+ #endif
+ 
+-FILE *fp;
++static FILE *fp;
+ 
+-struct quest *theq, *nextq, *the_s, *next_s;
+-int num_ch, num_ln, kill_sub, no_ans, zoom, obfus, fast, derange, rot13;
++static struct quest *theq, *nextq, *the_s, *next_s;
++static int num_ch, num_ln, kill_sub, no_ans, zoom, obfus, fast, derange, rot13;
+ 
+-short tty_flags;
++static short tty_flags;
+ #ifdef SYSV
+-unsigned char baz;
++static unsigned char baz;
+ #endif
+ 
+-unsigned short rows, cols;
++static unsigned short rows, cols;
+ 
+-char *testtype;
++static char *testtype;
+ #ifdef LOGFILE
+-int logme;
++static int logme;
+ #endif
+ 
+-main(argc,argv)
+-int argc;
+-char *argv[];
++int main(int argc, char *argv[])
+ {
+ 	int err, ch;	/* var to store error reports */
+ 	char path[256], *ch1;
+@@ -139,15 +139,15 @@ char *argv[];
+ 
+ 	if (fp == NULL) {
+ #ifndef SYSV
+-		if (ch1 = rindex(argv[0],'/')) ch1++;
++		if ((ch1 = rindex(argv[0],'/'))) ch1++;
+ #else
+-		if (ch1 = strrchr(argv[0],'/')) ch1++;
++		if ((ch1 = strrchr(argv[0],'/'))) ch1++;
+ #endif
+ 		else ch1 = argv[0];
+ #ifndef SYSV
+-		if (testtype = rindex(path,'/')) testtype++;
++		if ((testtype = rindex(path,'/'))) testtype++;
+ #else
+-		if (testtype = strrchr(path,'/')) testtype++;
++		if ((testtype = strrchr(path,'/'))) testtype++;
+ #endif
+ 		else testtype = path;
+ 		
+@@ -159,9 +159,9 @@ char *argv[];
+ 
+ 	if (testtype == NULL) {
+ #ifndef SYSV
+-		if (testtype = rindex(path,'/')) testtype++;
++		if ((testtype = rindex(path,'/'))) testtype++;
+ #else
+-		if (testtype = strrchr(path,'/')) testtype++;
++		if ((testtype = strrchr(path,'/'))) testtype++;
+ #endif
+ 		else testtype = path;
+ 	}
+@@ -300,6 +300,7 @@ char *argv[];
+ 		default :
+ 			break;
+ 	}
++	return 0;
+ }
+ 
+ int question()
+@@ -541,9 +542,9 @@ int subject()
+ 	return (err);
+ }
+ 
+-int print(echo,esc)
+-int echo;	/* if echo then print the text, and give "more" prompts */
+-int esc;	/* the escape character to end this text block */
++int print(int echo, int esc)
++	/* if echo then print the text, and give "more" prompts */
++	/* the escape character to end this text block */
+ {
+ 	int ch;
+ 
+@@ -621,7 +622,7 @@ int more()
+ 	return (ret);
+ }
+ 
+-void quit ()
++void quit (int s __attribute__((unused)))
+ {
+ 	(void) fflush(stdout);
+ 	(void) signal (SIGINT, SIG_DFL);
+@@ -633,7 +634,7 @@ void quit ()
+ }
+ 
+ #ifdef SIGTSTP
+-void ctrlz ()
++void ctrlz (int s __attribute__((unused)))
+ {
+ 	(void) fflush(stdout);
+ 	fprintf(stdout,"\nyou'll be back, right?\n");
+@@ -642,7 +643,7 @@ void ctrlz ()
+ 	(void) kill (getpid(), SIGTSTP);
+ }
+ 
+-void ctrlzret ()
++void ctrlzret (int s __attribute__((unused)))
+ {
+ 	fprintf(stdout,"nice to see you came back...\n");
+ 	(void) fflush(stdout);

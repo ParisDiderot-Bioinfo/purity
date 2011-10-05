@@ -5,3 +5,4 @@
 0005-moved-to-FHS-comformant-positions.patch
 0006-fix-segmentation-fault-when-saving-high-scores.patch
 0007-move-scorefile-out-of-LIBDIR.patch
+0008-avoid-some-compiler-warnings.patch

@@ -7,8 +7,9 @@ purity (1-18) unstable; urgency=low
   - use dpkg-buildflags (Closes: 437831)
   - implement build-arch, build-indep
   - debhelper compatibilty 7
+  * avoid some compiler warnings
 
- -- Bernhard R. Link <brlink@debian.org>  Wed, 05 Oct 2011 17:32:12 +0200
+ -- Bernhard R. Link <brlink@debian.org>  Wed, 05 Oct 2011 17:47:37 +0200
 
 purity (1-17) unstable; urgency=low
 
