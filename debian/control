@@ -10,7 +10,7 @@ Vcs-Git: git://anonscm.debian.org/collab-maint/purity.git
 Package: purity
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Automated purity testing software.
+Description: automated purity testing software
  For many years now, the purity test, (in various forms)
  has been widely available on the net.
  This package provides an automated way of taking the test.
