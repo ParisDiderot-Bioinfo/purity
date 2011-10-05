@@ -4,6 +4,8 @@ Priority: optional
 Maintainer: Debian QA Group <packages@qa.debian.org>
 Build-Depends: debhelper (>> 7)
 Standards-Version: 3.9.2
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/purity.git;a=summary
+Vcs-Git: git://anonscm.debian.org/collab-maint/purity.git
 
 Package: purity
 Architecture: any
