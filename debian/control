@@ -1,13 +1,18 @@
 Source: purity
 Section: games
-Priority: extra
-Maintainer: Aaron Howell <aaron@kitten.net.au>
-Standards-Version: 3.0.0
+Priority: optional
+Maintainer: Duncan Findlay <duncf@rogers.com>
+Build-Depends: debhelper (>> 3.0.0)
+Standards-Version: 3.5.2
 
 Package: purity
 Architecture: any
 Depends: ${shlibs:Depends}
 Description: Automated purity testing software.
- For many years now, the purity test, (in various forms)  
+ For many years now, the purity test, (in various forms)
  has been widely available on the net.
  This package provides an automated way of taking the test.
+ .
+ Purity tests are an amusing way to see how much of a nerd or
+ a hacker you are.  More tests are available in the purity-off
+ package.
