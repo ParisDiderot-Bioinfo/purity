@@ -8,8 +8,9 @@ purity (1-18) unstable; urgency=low
   - implement build-arch, build-indep
   - debhelper compatibilty 7
   * avoid some compiler warnings
+  * don't change binary's permissions in postinst but in package
 
- -- Bernhard R. Link <brlink@debian.org>  Wed, 05 Oct 2011 17:47:37 +0200
+ -- Bernhard R. Link <brlink@debian.org>  Wed, 05 Oct 2011 17:50:25 +0200
 
 purity (1-17) unstable; urgency=low
 

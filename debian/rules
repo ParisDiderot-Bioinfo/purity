@@ -44,6 +44,8 @@ binary-arch: build-stamp
 	dh_strip
 	dh_compress
 	dh_fixperms
+	chown root:games debian/purity//usr/games/purity
+	chmod 2755 debian/purity/usr/games/purity
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol
