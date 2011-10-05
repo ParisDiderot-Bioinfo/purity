@@ -9,8 +9,9 @@ purity (1-18) unstable; urgency=low
   - debhelper compatibilty 7
   * avoid some compiler warnings
   * don't change binary's permissions in postinst but in package
+  * Standards-Version to 3.9.2
 
- -- Bernhard R. Link <brlink@debian.org>  Wed, 05 Oct 2011 17:50:25 +0200
+ -- Bernhard R. Link <brlink@debian.org>  Wed, 05 Oct 2011 17:51:42 +0200
 
 purity (1-17) unstable; urgency=low
 
