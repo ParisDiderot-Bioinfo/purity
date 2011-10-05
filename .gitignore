@@ -1,0 +1,8 @@
+/build-stamp
+/debian/files
+/debian/*.debhelper.log
+/debian/*.debhelper
+/debian/*.substvars
+/debian/purity
+/purity
+/purity.6
