@@ -1,0 +1,23 @@
+From 1c7ff3ea94b093ba56c85fd1a6accb193e797c89 Mon Sep 17 00:00:00 2001
+From: Alan Shutko <ats@acm.org>
+Date: Wed, 19 Sep 2001 14:41:21 -0400
+Subject: fix stty settings munging
+
+Bug-Debian: http://bugs.debian.org/112827
+---
+ pt.c |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/pt.c b/pt.c
+index a8730f7..3a0d203 100644
+--- a/pt.c
++++ b/pt.c
+@@ -789,7 +789,7 @@ void sizewindow()
+ {
+ 	struct winsize wsize;
+ 
+-	(void) ioctl(0,TIOCSWINSZ,&wsize);
++	(void) ioctl(0,TIOCGWINSZ,&wsize);
+ 
+ 	cols = wsize.ws_col;
+ 	rows = wsize.ws_row;

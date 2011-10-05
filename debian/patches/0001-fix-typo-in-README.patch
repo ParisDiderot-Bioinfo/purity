@@ -1,0 +1,19 @@
+From b98622f73dc97a4b13ebab43dcf941bedff3c38d Mon Sep 17 00:00:00 2001
+From: Aaron Howell <aaron@kitten.net.au>
+Date: Sat, 9 Jan 1999 15:25:59 +1000
+Subject: fix typo in README
+
+---
+ README |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/README b/README
+index cc9c116..6cad9bc 100644
+--- a/README
++++ b/README
+@@ -1,4 +1,4 @@
+-This is a "purity testing" progam.  There have been many
++This is a "purity testing" program.  There have been many
+ purity tests floating around the net, and this provides
+ a more or less automated way to take the tests, and keep
+ score, without having to always find pencil and paper.

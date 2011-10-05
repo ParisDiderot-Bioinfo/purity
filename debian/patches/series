@@ -1,0 +1,7 @@
+0001-fix-typo-in-README.patch
+0002-Fixed-two-buffer-overflows.patch
+0003-make-purity-build-on-SYSV-platforms-using-termios.patch
+0004-fix-stty-settings-munging.patch
+0005-moved-to-FHS-comformant-positions.patch
+0006-fix-segmentation-fault-when-saving-high-scores.patch
+0007-move-scorefile-out-of-LIBDIR.patch

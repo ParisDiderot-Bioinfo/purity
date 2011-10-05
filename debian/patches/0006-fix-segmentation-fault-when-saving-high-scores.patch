@@ -1,0 +1,28 @@
+From 7b2c2cbca5dfcf8aaaa2a9a1e53d1ea12ebfd60f Mon Sep 17 00:00:00 2001
+From: Gergely Nagy <algernon@debian.org>
+Date: Wed, 3 Oct 2001 18:44:30 +0200
+Subject: fix segmentation fault when saving high scores
+
+purity segfaults when trying to save the high-score file, this is
+because it does not check if getlogin() returns NULL, and tries to use
+it anyway.
+
+Bug-Debian: http://bugs.debian.org/114340
+---
+ pt.c |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+diff --git a/pt.c b/pt.c
+index 3a0d203..b18acb2 100644
+--- a/pt.c
++++ b/pt.c
+@@ -750,7 +750,8 @@ void freemem()
+ 		fp = fopen (scorepath,"a+");
+ 		if (fp != NULL) {
+ #ifdef GETLOGIN
+-			(void) strcpy(login,getlogin());
++			char *tmp = getlogin();
++			(void) strcpy(login,(tmp) ? tmp : "");
+ 			if (*login == '\0') {
+ #endif
+ #ifdef PW

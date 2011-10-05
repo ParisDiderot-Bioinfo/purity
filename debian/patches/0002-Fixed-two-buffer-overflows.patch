@@ -1,0 +1,31 @@
+From 35855ccd2de3cf9b6194d73e190290dec50819dd Mon Sep 17 00:00:00 2001
+From: Martin Schulze <joey@infodrom.org>
+Date: Tue, 10 Sep 2002 20:23:26 +0200
+Subject: Fixed two buffer overflows
+
+---
+ pt.c |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/pt.c b/pt.c
+index 9b4cbf6..8a49204 100644
+--- a/pt.c
++++ b/pt.c
+@@ -127,7 +127,7 @@ char *argv[];
+ 				case '-' :
+ 					break;
+ 				default :
+-					(void) sprintf(path,"%s/%s",
++					(void) snprintf(path, sizeof(path),"%s/%s",
+ 							LIBDIR, argv[err]);
+ 					ch = TRUE;
+ 					break;
+@@ -137,7 +137,7 @@ char *argv[];
+ 
+ 	fp = fopen(path,"r");
+ 	if (fp == NULL) {
+-		(void) sprintf(path,"%s",argv[err]);
++		(void) snprintf(path, sizeof (path),"%s",argv[err]);
+ 		fp = fopen(path,"r");
+ 	}
+ 

@@ -1,0 +1,27 @@
+From 6ad9592c52e5e43321e4247a36a07aa3bc49496e Mon Sep 17 00:00:00 2001
+From: Bernhard R. Link <brlink@debian.org>
+Date: Wed, 5 Oct 2011 17:10:43 +0200
+Subject: move scorefile out of LIBDIR
+
+instead of hardcoding it like previous patches, allow it to be given
+via preprocessor flag.
+---
+ pt.c |    4 ++++
+ 1 files changed, 4 insertions(+), 0 deletions(-)
+
+diff --git a/pt.c b/pt.c
+index b18acb2..d79766e 100644
+--- a/pt.c
++++ b/pt.c
+@@ -746,7 +746,11 @@ void freemem()
+ 
+ #ifdef LOGFILE
+ 	if ((no_ans == FALSE) && logme && (ans > 0)) {
++# ifdef SCOREFILE
++		strcpy(scorepath, SCOREFILE);
++# else
+ 		sprintf(scorepath,"%s/%s",LIBDIR,"scores");
++# endif
+ 		fp = fopen (scorepath,"a+");
+ 		if (fp != NULL) {
+ #ifdef GETLOGIN

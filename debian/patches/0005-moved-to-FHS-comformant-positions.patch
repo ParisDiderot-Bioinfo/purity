@@ -1,0 +1,25 @@
+From 736ac4bd4687a25ac25f622cf40368946fc9cb6c Mon Sep 17 00:00:00 2001
+From: Duncan Findlay <duncf@rogers.com>
+Date: Thu, 20 Sep 2001 22:54:11 -0400
+Subject: moved to FHS comformant positions
+
+Bug-Debian: http://bugs.debian.org/107643
+---
+ pt.6 |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/pt.6 b/pt.6
+index 69a5a39..8629b0f 100644
+--- a/pt.6
++++ b/pt.6
+@@ -145,8 +145,8 @@ and then it would have asked the user for her/his answer.
+ For a generic datafile, use the "sample" datafile for the test.
+ .SH FILES
+ .nf
+-/usr/games/lib/purity/scores	the score logfile
+-/usr/games/lib/purity/*		test data files
++/var/games/purity.scores	the score logfile
++/usr/share/games/purity/*		test data files
+ .fi
+ .SH AUTHOR
+ Eric Lechner, lechner@ucscb.ucsc.edu
