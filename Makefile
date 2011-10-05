@@ -9,7 +9,7 @@
 BINDIR = /usr/games
 
 #   LIBDIR: the directory where the test datafiles are kept
-LIBDIR = /usr/lib/games/purity
+LIBDIR = /usr/share/games/purity
 
 # options for the c compiler (-g, -O, etc.)
 # Specify -DSYS for sysV, -DLINUX for linux, BSD is default
@@ -26,5 +26,5 @@ clean:
 install: purity
 	mkdir -p ${DESTDIR}/usr/games
 	install purity ${DESTDIR}/usr/games
-	mkdir -p ${DESTDIR}/usr/lib/games/purity
-	cp -r tests/* ${DESTDIR}/usr/lib/games/purity
+	mkdir -p ${DESTDIR}/usr/share/games/purity
+	cp -r tests/* ${DESTDIR}/usr/share/games/purity
