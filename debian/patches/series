@@ -6,3 +6,4 @@
 0006-fix-segmentation-fault-when-saving-high-scores.patch
 0007-move-scorefile-out-of-LIBDIR.patch
 0008-avoid-some-compiler-warnings.patch
+0009-fix-spelling-error-in-manpage.patch

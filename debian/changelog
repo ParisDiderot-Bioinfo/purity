@@ -6,12 +6,13 @@ purity (1-18) unstable; urgency=low
   * modernize debian/rules
   - use dpkg-buildflags (Closes: 437831)
   - implement build-arch, build-indep
-  - debhelper compatibilty 7
+  - debhelper compatibility 7
   * avoid some compiler warnings
   * don't change binary's permissions in postinst but in package
   * Standards-Version to 3.9.2
+  * fix some minor formating errors and misspellings lintian warns about
 
- -- Bernhard R. Link <brlink@debian.org>  Wed, 05 Oct 2011 17:51:42 +0200
+ -- Bernhard R. Link <brlink@debian.org>  Wed, 05 Oct 2011 18:10:50 +0200
 
 purity (1-17) unstable; urgency=low
 
