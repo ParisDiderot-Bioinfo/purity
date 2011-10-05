@@ -1,86 +1,55 @@
 #!/usr/bin/make -f
-# Sample debian/rules that uses debhelper.
-# GNU copyright 1997 to 1999 by Joey Hess.
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-# This is the debhelper compatability version to use.
-export DH_COMPAT=3
+CFLAGS := $(shell dpkg-buildflags --get CFLAGS)
+CPPFLAGS := $(shell dpkg-buildflags --get CPPFLAGS)
+LDFLAGS := $(shell dpkg-buildflags --get LDFLAGS)
 
-#configure: configure-stamp
-#configure-stamp:
-#	dh_testdir
-#	# Add here commands to configure the package.
-#	
-#
-#	touch configure-stamp
+CFLAGS += -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes
+LDFLAGS += -Wl,-z,defs
 
-# Following contained configure-stamp
-build: build-stamp
+build-indep:
+build-arch: build-stamp
+
 build-stamp:
 	dh_testdir
-
-	# Add here commands to compile the package.
-	$(MAKE) purity
-	#/usr/bin/docbook-to-man debian/purity.sgml > purity.1
-
+	$(MAKE) CFLAGS='-DLINUX -DSCOREFILE="\"/var/games/purity.scores\"" $(CPPFLAGS) $(CFLAGS) $(LDFLAGS)' \
+		LIBDIR='/usr/share/games/purity' \
+	       	purity
+	cp pt.6 purity.6
 	touch build-stamp
 
 clean:
 	dh_testdir
 	dh_testroot
-	rm -f build-stamp configure-stamp
-
-	# Add here commands to clean up after the build process.
-	-$(MAKE) clean
-	-rm -f `find . -name "*~"`
-	
+	rm -f build-stamp purity purity.6
 	dh_clean
 
-install: build
+binary-indep:
+
+binary-arch: build-stamp
 	dh_testdir
 	dh_testroot
-	dh_clean -k
+	dh_prep
 	dh_installdirs
-
-	# Add here commands to install the package into debian/purity.
-	$(MAKE) install DESTDIR=$(CURDIR)/debian/purity
-
-
-# Build architecture-independent files here.
-binary-indep: build install
-# We have nothing to do by default.
-
-# Build architecture-dependent files here.
-binary-arch: build install
-	dh_testdir
-	dh_testroot
-#	dh_installdebconf	
+	dh_install
 	dh_installdocs
 	dh_installexamples
 	dh_installmenu
-#	dh_installlogrotate
-#	dh_installemacsen
-#	dh_installpam
-#	dh_installmime
-#	dh_installinit
-#	dh_installcron
-	dh_installman
-#	dh_installinfo
-#	dh_undocumented
-	dh_installchangelogs 
+	dh_installman purity.6
+	dh_installchangelogs
 	dh_link
 	dh_strip
 	dh_compress
 	dh_fixperms
-#	dh_makeshlibs
 	dh_installdeb
-#	dh_perl
 	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install configure
+build: build-arch build-indep
+.PHONY: build build-arch build-indep clean binary-indep binary-arch binary

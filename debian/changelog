@@ -1,8 +1,12 @@
 purity (1-18) unstable; urgency=low
 
   * QA upload (setting Maintainer to QA group)
+  * modernize debian/rules
+  - use dpkg-buildflags (Closes: 437831)
+  - implement build-arch, build-indep
+  - debhelper compatibilty 7
 
- -- Bernhard R. Link <brlink@debian.org>  Wed, 05 Oct 2011 17:15:17 +0200
+ -- Bernhard R. Link <brlink@debian.org>  Wed, 05 Oct 2011 17:17:28 +0200
 
 purity (1-17) unstable; urgency=low
 
