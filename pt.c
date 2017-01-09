@@ -32,6 +32,8 @@
 #include <signal.h>
 #include <pwd.h>
 
+#include <curses.h>
+
 #define SKIP 255
 #define TRUE 1
 #define FALSE 0
@@ -255,11 +257,13 @@ int main(int argc, char *argv[])
 				err = EXIT;
 				break;
 			case TEXT :
+			        fprintf(stdout, "\033[31;1m");
 				if (fast) err = print(NO_ECHO,ENDTEXT);
 				else {
 					err = print(DO_ECHO,ENDTEXT);
 					(void) fputc('\n',stdout);
 				}
+				fprintf(stdout, "\033[0m");
 				break;
 			case SUBJECT :
 				err = subject();
@@ -309,11 +313,13 @@ int question()
 
 	theq->fpos = ftell(fp) - 1;
 
+	fprintf(stdout, "\033[31;1;3m");
 	if (kill_sub == FALSE) {
 		fprintf(stdout,"%3d. ",theq->num);
 		err = print(DO_ECHO,ENDQUEST);
 		(void) fputc('\n',stdout);
 	} else err = print(NO_ECHO,ENDQUEST);
+	fprintf(stdout, "\033[0m");
 
 	if (err == OK) {
 		if (kill_sub || no_ans) err = SKIP;
@@ -328,12 +334,12 @@ int question()
 					nextq = theq;
 					theq = nextq->last;
 					free((char *) nextq);
-					fprintf(stdout,"Your old answer was: ");
+					fprintf(stdout,"\033[35;1mYour old answer was: \033[0m");
 					if (theq->answer == TRUE)
-						fprintf(stdout,"yes.\n\n");
+						fprintf(stdout,"\033[32;1myes.\n\n\033[0m");
 					else if (theq->answer == FALSE)
-						fprintf(stdout,"no.\n\n");
-					else fprintf(stdout,"skipped.\n\n");
+						fprintf(stdout,"\033[32;1mno.\n\n\033[0m");
+					else fprintf(stdout,"\033[33;1mskipped.\n\n\033[0m");
 					if (the_s->last != NULL) {
 						next_s = the_s->last;
 						if (next_s->fpos > theq->fpos) {
@@ -341,7 +347,7 @@ int question()
 							the_s = next_s;
 						}
 					}
-				} else fprintf(stderr,"Silly, you can't back up past the beginning of the test...\n\n");
+				} else fprintf(stderr,"\033[33;7mSilly, you can't back up past the beginning of the test...\n\033[0m\n");
 				err = fseek(fp,theq->fpos,0);
 				if (err == EOF) err = FILE_ERR;
 				else err = OK;
@@ -524,8 +530,10 @@ int subject()
 	if (fast) err = print (NO_ECHO,ENDSUB);
 	else {
 		fprintf(stdout,"------------------------------------------------------------------------------\n");
+		fprintf(stdout, "\033[33;1m");
 		fprintf(stdout,"%d. ",the_s->num);
 		err = print(DO_ECHO,ENDSUB);
+		fprintf(stdout, "\033[0m");
 		(void) fputc('\n',stdout);
 	}
 	if (err == OK) {
@@ -708,11 +716,11 @@ void printscore()
 		nextq = nextq->last;
 	}
 	if (num_q <= 0) {
-		fprintf(stdout,"\nyou can't get a score without answering any questions, silly.\n\n");
+		fprintf(stdout,"\n\033[34;7myou can't get a score without answering any questions, silly.\033[0m\n\n");
 		num_ln += 2;
 	} else {
-		fprintf(stdout, "\nyou answered %d 'no' answer%s out of %d question%s,\n",score,(score -1) ? "s" : "",num_q,(num_q-1) ? "s" : "");
-		fprintf(stdout,"which makes your purity score %.2f%%.\n\n",
+		fprintf(stdout, "\033[7m\nyou answered %d 'no' answer%s out of %d question%s,\n",score,(score -1) ? "s" : "",num_q,(num_q-1) ? "s" : "");
+		fprintf(stdout,"which makes your purity score %.2f%%.\n\n\033[0m",
 			((float) 100 * score / num_q));
 		num_ln += 3;
 	}
