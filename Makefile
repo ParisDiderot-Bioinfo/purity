@@ -6,10 +6,10 @@
 
 
 # BINDIR: the directory where the binary will go.
-BINDIR = /usr/games
+BINDIR = .
 
 #   LIBDIR: the directory where the test datafiles are kept
-LIBDIR = /usr/games/lib/pt
+LIBDIR = tests/
 
 # options for the c compiler (-g, -O, etc.)
 # Specify -DSYS for sysV, -DLINUX for linux, BSD is default
