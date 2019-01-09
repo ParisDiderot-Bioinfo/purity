@@ -17,10 +17,10 @@
 
 [ And now for the questions... ]
 
-( 0x000 Είχατε ποτέ υπολογιστή;)
-( 0x001 Έχετε χρησιμοποιείσει ποτέ υπολογιστή;)
-( 0x002 ... για πανω από 4 συνεχόμενες ώρες;)
-( 0x003 ... πάνω από 8 ώρες?)
+( 0x000 Have you ever had a computer?)
+( 0x001 Have you ever used a computer?)
+( 0x002 ... Have you ever programmed a computer?)
+( 0x003 ... more than 8 hours?)
 ( 0x004 ... more than 16 hours?)
 ( 0x005 ... more than 32 hours?)
 ( 0x006 Have you ever patched paper tape?)
